@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Paradis Legion</title>
+    <style>
+        :root {
+            --main-bg: #222222;
+            --content-bg: #1A1A1A;
+            --heading-color: #FFFFFF;
+            --body-text: #AAAAAA;
+            --border-color: #444444;
+            --icon-color: #FFFFFF;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--main-bg);
+            color: var(--body-text);
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--main-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--border-color);
+        }
+        header img {
+            width: 180px;
+            max-width: 50%;
+            transition: transform 0.3s ease;
+            filter: brightness(1) saturate(0);
+        }
+        header img:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            color: var(--heading-color);
+            font-size: 3rem;
+            margin-top: 20px;
+            transition: color 0.3s ease;
+        }
+        h1:hover {
+            color: var(--icon-color);
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            color: var(--heading-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover {
+            color: var(--icon-color);
+            border-bottom: 2px solid var(--icon-color);
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: var(--content-bg);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.75);
+            border: 1px solid var(--border-color);
+        }
+        h2 {
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        ul, p {
+            line-height: 1.8;
+            color: var(--body-text);
+        }
+        details {
+            margin-top: 10px;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--heading-color);
+            padding: 10px;
+            background-color: var(--border-color);
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        summary:hover {
+            background-color: var(--icon-color);
+            color: var(--main-bg);
+        }
+        .cta {
+            display: inline-block;
+            background-color: var(--icon-color);
+            color: var(--main-bg);
+            text-decoration: none;
+            padding: 12px 26px;
+            margin-top: 10px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .cta:hover {
+            background-color: var(--main-bg);
+            color: var(--icon-color);
+            border: 1px solid var(--icon-color);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--main-bg);
+            color: var(--heading-color);
+            font-size: 0.9rem;
+            border-top: 3px solid var(--border-color);
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            section {
+                padding: 20px;
+                margin: 20px 10px;
+            }
+            header img {
+                width: 140px;
+                filter: brightness(1) saturate(0);
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="1000030859.jpg" alt="The Paradis Legion Logo" />
+    <h1>THE PARADIS LEGION</h1>
+    <nav>
+        <a href="#welcome">Welcome</a>
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#tips">Tips & Tricks</a>
+        <a href="#staff">Staff</a>
+        <a href="#contact">Join Us</a>
+    </nav>
+</header>
+<section id="welcome">
+    <h2>Welcome to Our Webpage</h2>
+    <p>Welcome, Legionary! You’ve entered The Paradis Legion — the heart of the Attack on Titan Revolution (AoTR) community. This website is your go-to hub for guides, tips, and news from our Discord server. Whether you're a recruit or a veteran slayer, you'll find everything you need here.</p>
+</section>
+<section id="about">
+    <h2>About Us</h2>
+    <p>The Paradis Legion is an elite AoTR regiment that unites players under one flag to share knowledge, dominate battles, and celebrate the AoT spirit. Our Discord server mirrors the military division structure — complete with departments, roles, and missions.</p>
+    <p>Our motto: “Get Rumbled, Stay Humbled!”</p>
+</section>
+<section id="news">
+    <h2>News</h2>
+    <p>No news currently</p>
+</section>
+<section id="tips">
+  <h2>Emperor's Library – Tips & Tricks</h2>
+  <details>
+    <summary>📚 Click to expand the Emperor's Library</summary>
+    <details>
+      <summary>1. Titan Combat Briefing: Know Your Shifter</summary>
+      <p>Listen up, Legionaries! The Colossal Titan update is upon us. To achieve victory, you must understand the tools of destruction at your disposal. Titans are categorized into two distinct combat doctrines: the versatile Standard Build and the devastating Glass Cannon. Know their strengths and weaknesses, or you will be devoured.</p>
+      <h4>The Standard Build - The Jack-of-All-Trades</h4>
+      <p>Most Shifters you'll encounter—as the Attack, Female, and Armored—are built on a reliable and balanced 7-skill combat kit. Think of them as your frontline brawlers, tough and adaptable enough for any situation.</p>
+      <ul>
+        <li><strong>The Standard Titan Toolkit (7 Core Skills):</strong></li>
+        <li>💥 <strong>High-Damage Nuke:</strong> Your go-to single-target obliterator. A straight-line attack perfect for deleting a high-priority enemy.</li>
+        <li>Examples: Corckscrew Punch (Attack Titan), Sidekick (Female Titan), Earthbreaker (Armour Titan), Tectonic Quake (Colossal Titan)</li>
+        <li>🌪️ <strong>Area-of-Effect (AoE) Clear:</strong> The "get off me" button. Use this to smash and control crowds of smaller titans swarming you.</li>
+        <li>Examples: Brutal Stomp (Female Titan), Round Hook Kick (Attack Titan), Seismic Shock (Colossal Titan)</li>
+        <li>😱 <strong>Heal & Stun:</strong> Your lifesaver. This ability restores health and stuns nearby enemies.</li>
+        <li>Examples: Roar (Female Titan), Shriek (Attack Titan), Roar (Armour Titan)</li>
+        <li>💪 <strong>Titan-Slaying Finisher:</strong> The ultimate flex. Use other titans as your weapon to cause carnage.</li>
+        <li>Examples: Grapple Titan Toss (Female Titan), Uppercut (Armored Titan), Titan Toss (Armour Titan)</li>
+        <li>✨ <strong>Self-Buff:</strong> Your personal power-up. Pop this to temporarily boost your stats.</li>
+        <li>Examples: Adrenaline Rush (Attack Titan), Fireball (Colossal Titan)</li>
+      </ul>
+      <h4>The Glass Cannon - High Risk, High Reward</h4>
+      <p>This build trades durability for overwhelming damage. Use glass cannons to finish battles fast, but beware of vulnerability.</p>
+      <ul>
+        <li>Focus on maximizing damage skills.</li>
+        <li>Avoid taking hits at all costs.</li>
+      </ul>
+    </details>
+    <details>
+      <summary>2. AOT: Revolution - Game Pass Priority Guide (Robux & Scrolls)</summary>
+      <p>Maximizing your effectiveness in AoTR means choosing the right game passes. Here are the top picks:</p>
+      <ul>
+        <li><strong>Memory Bag:</strong> Allows you to store extra memories, increasing flexibility and playstyle options.</li>
+        <li><strong>Skip Roll:</strong> Saves time by allowing faster movement rolls, crucial in tight combats.</li>
+        <li><strong>Drop Boost:</strong> Increases item drop rates, which accelerates progression and resource acquisition.</li>
+      </ul>
+      <p>Spend your Robux wisely, focusing on passes that enhance your combat and progression speed.</p>
+      <p>Don't forget to balance your purchase of scrolls and passes with your preferred playstyle and regiment strategy.</p>
+    </details>
+    <details>
+      <summary>3. The Legion's Master Guide to Prestige</summary>
+      <p>Prestige is at the core of AoTR player growth. Maximizing your Prestige gains unlocks powerful abilities and level caps.</p>
+      <ul>
+        <li><strong>The Path to Prestige: How to Prestige:</strong> Requirement: To prestige, you only need to reach the maximum level for your current prestige rank.    Prestige Scrolls: You do NOT need a prestige scroll to prestige. Prestige scrolls are a separate item used only for rerolling memories.</li>
+        <li><strong>The Aftermath: Consequences & Rewards:</strong> Prestiging is a monumental step that resets certain aspects of your progress while granting permanent buffs.
+
+ What You KEEP After Prestiging:
+ Your Titan Serum.
+ Your current in-game Streak.
+ The Best Boost you have selected (e.g., Luck).
+
+ What RESETS After Prestiging:
+ Your Level resets to 1.
+ Your Skill Tree resets.
+ Your ODM Grade resets.
+
+ The Permanent Buffs You GAIN:
+ New Memory Slot: You gain an additional passive/permanent memory slot with every prestige.
+ Choice of Permanent Boost: You can choose one of the following permanent stat increases:
+     +7.5% Luck OR
+     +15% EXP OR
+     +15% Gold
+ Increased Gem Payouts: Every prestige adds a permanent +10 gems to your mission and raid payouts.
+ Increased Legendary Chance: You gain a permanent +0.005% chance to roll legendary families per prestige.
+ Increased Level Cap: Your maximum attainable level increases with each prestige:
+     Prestige 1: New Level Cap is 125
+     Prestige 2: New Level Cap is 150
+     Prestige 3: New Level Cap is 175
+     Prestige 4: New Level Cap is 200
+</li>
+        <li><strong>Converting Your Fortune: Gold-to-Gem Conversion:</strong> Upon prestiging, all of your accumulated Gold is automatically converted into Gems. The conversion rate improves as you reach higher prestige levels.
+
+ Prestiging to P1: 1500 Gold = 1 Gem. 
+ Prestiging to P2: 1250 Gold = 1 Gem. 
+ Prestiging to P3: 1000 Gold = 1 Gem. 
+ Prestiging to P4: 1000 Gold = 1 Gem. 
+
+Example Conversion (with 500 Million Gold which is the cap on gold-gem conversion):
+ Prestige 1: 333,333 gems. 
+ Prestige 2: 400,000 gems. 
+ Prestige 3: 500,000 gems. 
+ Prestige 4: 500,000 gems. 
+</li>
+      </ul>
+      <p>Mastering Prestige timing and buff management will give you an edge in rank and combat effectiveness.</p>
+    </details>
+    <details>
+      <summary>4. Chances of getting serum in each map</summary>
+      <p>Knowing where to find serums is crucial for progression.</p>
+      <ul>
+        <li><strong>Giant Forest:</strong> 0.2% chances</li>
+        <li><strong>Shiganshina:</strong> 0.19% chances</li>
+        <li><strong>Trost:</strong> 0.18% chances</li>
+        <li><strong>Loading Docks:</strong> 0.18% chances</li>
+        <li><strong>Stohess:</strong> 0.18% chances</li>
+        <li><strong>Outskirts:</strong> 0.17% chances</li>
+        <li><strong>Utgard:</strong> 0.17% chances</li>
+      </ul>
+      <p>Farming serums efficiently requires knowledge of spawn points and timing. Coordinate with your legion to maximize gains.</p>
+    </details>
+    <details>
+      <summary>5. AoTR LEADERBOARD RESET TIME</summary>
+      <p>1st of each month 00:00 GMT (5:30 am IST)</p>
+      <p>Coordinate your gameplay to achieve the highest rank before the reset for maximum rewards.</p>
+    </details>
+    <details>
+      <summary>6. A Legionary's Guide to Targeted Memory Rerolling</summary>
+      <p>Targeted Memory Rerolling is a key strategy for optimizing your skill tree.</p>
+      <ul>
+        <li>Reset builds strategically to maximize efficiency.</li>
+        <li>Use specific memory combinations for desired skill outcomes.</li>
+        <li>Follow this 5-step process to achieve 90% efficiency in your rerolls.</li>
+      </ul>
+      <p>Dedicated rerolling cycles lead to elite builds and optimized combat readiness.</p>
+    </details>
+  </details>
+</section>
+<section id="staff">
+    <h2>The Legion Staff</h2>
+    <h3>Owner & Admins</h3>
+    <ul>
+        <li>Owner (Emperor): @jackthecarnage</li>
+        <li>Admin (Chancellor): @shifosan</li>
+    </ul>
+    <h3>Senators</h3>
+    <ul>
+        <li>@op_karannnn — Justice</li>
+        <li>@lonesoul0036 — Engagement</li>
+        <li>@erenyeager000010 — Communication</li>
+    </ul>
+    <h3>Royal Guard Commander</h3>
+    <p>@delayedcode</p>
+    <h3>Praetorians</h3>
+    <ul>
+        <li>@delayedcode</li>
+        <li>@death8209</li>
+        <li>@based.dom</li>
+    </ul>
+    <h3>Tribunes</h3>
+    <ul>
+        <li>@based.dom</li>
+        <li>@general.genocide</li>
+        <li>@delayedcode</li>
+    </ul>
+    <h3>Animator</h3>
+    <p>@amor_aid27</p>
+    <h3>Envoys</h3>
+    <ul>
+        <li>@dinacx</li>
+        <li>@chewieray</li>
+        <li>@rhialized</li>
+        <li>@.notayushgamer</li>
+    </ul>
+    <h3>Additional Staff</h3>
+    <p>none</p>
+</section>
+<section id="contact">
+    <h2>Join the Legion</h2>
+    <p>Become part of our growing AoTR community and fight for humanity's survival!</p>
+    <a href="https://discord.gg/M6r7eEKQtC" target="_blank" class="cta">Join Our Discord</a>
+</section>
+<footer>
+    <p>© 2025 The Paradis Legion. All rights reserved.</p>
+    <p>Attack on Titan Revolution | Roblox Community Server</p>
+</footer>
+</body>
+</html>
