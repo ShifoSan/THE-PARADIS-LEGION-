@@ -1153,11 +1153,8 @@
           const lowerCaseQuery = query.toLowerCase().trim();
 
           searchableDetails.forEach(detail => {
-            const summary = detail.querySelector('summary');
-            const content = detail.querySelector('div, p, ul, ol');
-            const textContent = (summary?.textContent + ' ' + content?.textContent).toLowerCase();
-
-            const isMatch = textContent.includes(lowerCaseQuery);
+            const textContent = detail.textContent || "";
+            const isMatch = textContent.toLowerCase().includes(lowerCaseQuery);
             detail.style.display = isMatch ? '' : 'none';
           });
         }
