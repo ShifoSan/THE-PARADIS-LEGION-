@@ -366,6 +366,15 @@
     .search-container {
       padding: 12px;
       padding-bottom: 0;
+      position: sticky;
+      top: 0;
+      z-index: 1190;
+      background: var(--bg);
+    }
+    @media (min-width: 881px) {
+      .search-container {
+        top: 48px; /* Position below the sticky main nav on desktop */
+      }
     }
     #content-search {
       width: 100%;
@@ -1149,6 +1158,36 @@
           ...Array.from(faqsSection.querySelectorAll('details'))
         ];
 
+        function debounce(func, delay) {
+          let timeout;
+          return function(...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), delay);
+          };
+        }
+
+        const mainNav = document.getElementById('main-nav');
+        const searchContainer = document.querySelector('.search-container');
+
+        function setScrollMargin() {
+          let stickyHeaderHeight = 0;
+          if (mainNav && window.getComputedStyle(mainNav).display !== 'none') {
+            stickyHeaderHeight += mainNav.offsetHeight;
+          }
+          if (searchContainer) {
+            stickyHeaderHeight += searchContainer.offsetHeight;
+          }
+          stickyHeaderHeight += 20; // Extra margin
+
+          searchableDetails.forEach(detail => {
+            detail.style.scrollMarginTop = `${stickyHeaderHeight}px`;
+          });
+        }
+
+        setScrollMargin();
+        window.addEventListener('resize', debounce(setScrollMargin, 200));
+
         function filterContent(query) {
           const lowerCaseQuery = query.toLowerCase().trim();
           let firstMatch = null;
@@ -1164,24 +1203,14 @@
           });
 
           if (firstMatch && lowerCaseQuery.length > 0) {
-            const mainNav = document.getElementById('main-nav');
-            const searchContainer = document.querySelector('.search-container');
-            const navHeight = mainNav?.offsetHeight || 0;
-            const searchHeight = searchContainer?.offsetHeight || 0;
-            const offset = navHeight + searchHeight + 20; // Extra 20px margin
-
-            const elementPosition = firstMatch.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - offset;
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
+            firstMatch.scrollIntoView({ behavior: 'smooth' });
           }
         }
 
+        const debouncedFilter = debounce(filterContent, 300);
+
         searchInput.addEventListener('input', (e) => {
-          filterContent(e.target.value);
+          debouncedFilter(e.target.value);
         });
       })();
     })();
