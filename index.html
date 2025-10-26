@@ -345,6 +345,42 @@
 
     .hof-list{ margin-top:10px; padding-left:18px }
 
+    .news-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .news-list li {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .news-list li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    /* Search Bar */
+    .search-container {
+      padding: 12px;
+      padding-bottom: 0;
+    }
+    #content-search {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--heading);
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    #content-search::placeholder {
+      color: var(--muted);
+    }
+
     /* Responsive tweaks */
     @media (max-width:880px){
       .main-nav{ display:none; }
@@ -389,6 +425,11 @@
     <a href="#hall-of-fame">Hall of Fame</a>
     <a href="#contact" class="nav-cta" style="background:var(--accent); color:#042523;">Join Us</a>
   </nav>
+
+  <!-- Search Bar -->
+  <div class="search-container container">
+    <input type="search" id="content-search" placeholder="Search guides and FAQs..." aria-label="Search guides and FAQs">
+  </div>
 
   <!-- Bottom nav - mobile -->
   <nav id="bottom-nav" class="bottom-nav" aria-label="Mobile navigation">
@@ -450,7 +491,9 @@
 
     <section id="news" aria-labelledby="news-heading" tabindex="-1">
       <h2 id="news-heading">News</h2>
-      <p>No news currently</p>
+      <ul class="news-list">
+        <li><strong>October 26, 2025:</strong> Website launch! Welcome to the new home of The Paradis Legion.</li>
+      </ul>
     </section>
 
 <section id="staff-applications" aria-labelledby="staff-applications-heading" tabindex="-1">
@@ -1092,6 +1135,37 @@
       // expose little API
       window.__paradis = { applyTheme, renderStaff };
 
+      // ===== Search functionality =====
+      (function contentSearch(){
+        const searchInput = document.getElementById('content-search');
+        if (!searchInput) return;
+
+        const tipsSection = document.getElementById('tips');
+        const faqsSection = document.getElementById('faqs');
+        if (!tipsSection || !faqsSection) return;
+
+        const searchableDetails = [
+          ...Array.from(tipsSection.querySelectorAll('details')),
+          ...Array.from(faqsSection.querySelectorAll('details'))
+        ];
+
+        function filterContent(query) {
+          const lowerCaseQuery = query.toLowerCase().trim();
+
+          searchableDetails.forEach(detail => {
+            const summary = detail.querySelector('summary');
+            const content = detail.querySelector('div, p, ul, ol');
+            const textContent = (summary?.textContent + ' ' + content?.textContent).toLowerCase();
+
+            const isMatch = textContent.includes(lowerCaseQuery);
+            detail.style.display = isMatch ? '' : 'none';
+          });
+        }
+
+        searchInput.addEventListener('input', (e) => {
+          filterContent(e.target.value);
+        });
+      })();
     })();
   </script>
 </body>
