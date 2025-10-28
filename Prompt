@@ -1,0 +1,24 @@
+Hello, I need you to modify my attached index.html file.
+My goal is to replace the current simple search bar with a new, advanced component. This new component must be a combination of the designs from the two other attached .zip files:
+ * Search bar.zip (for the animated search input)
+ * Custom Dropdown Select Menu.zip (for the dropdown)
+Here are the specific instructions:
+ * Locate Target: In the main index.html file, find the <div class="search-container container">.
+ * Replace HTML: Remove the existing <input type="search" id="content-search" ...> from inside that div.
+ * Insert New HTML: In its place, insert a new structure that combines the dropdown and the search bar.
+   * The HTML for the dropdown should be taken from Custom Dropdown Select Menu.zip.
+   * The HTML for the search input (the input and the animated .search div) should be taken from Search bar.zip.
+   * Please arrange them side-by-side (e.g., using flexbox) so the dropdown is on the left and the search bar is on the right.
+ * Integrate CSS (Crucial):
+   * Take all the CSS rules from Search bar.zip/Search bar/style.css.
+   * Take all the CSS rules from Custom Dropdown Select Menu.zip/Custom Dropdown Select Menu/style.css.
+   * Merge all of these rules into the main <style> tag inside my index.html file.
+   * IMPORTANT: You MUST adjust the CSS selectors from the zip files to prevent conflicts. For example, rules for body or .container in the zip files will break my site. Please make the new CSS rules highly specific so they only apply to the new search and dropdown elements, and do not change any other part of my page.
+ * Integrate JavaScript:
+   * Take the JavaScript from Custom Dropdown Select Menu.zip/Custom Dropdown Select Menu/script.js.
+   * Add this script inside the main <script> tag at the bottom of my index.html file (within the existing (function(){ ... })();).
+   * Ensure the selectors in this new JS (.select-menu, .select-btn, etc.) correctly target the new HTML you added.
+ * Update Search Functionality:
+   * My file already has a JavaScript function named filterContent that filters the "Tips" and "FAQs" sections.
+   * Please modify this filterContent function. It must now filter based on both the text typed into the new search input and the category selected from the new dropdown menu. (For the dropdown options, you can use placeholder categories like "All," "Tips," and "FAQs").
+ * Final Output: The final result must be a single index.html file with all HTML, CSS, and JS integrated. All other parts of my original page (header, navigation, staff cards, theme toggle, etc.) must remain exactly as they were and be fully functional.
