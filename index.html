@@ -390,6 +390,184 @@
       color: var(--muted);
     }
 
+    /* Advanced Search Wrapper */
+    .advanced-search-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Scoped Dropdown Styles */
+    .advanced-search-wrapper .select-menu {
+      width: 200px;
+      position: relative;
+    }
+    .advanced-search-wrapper .select-menu .select-btn {
+      display: flex;
+      height: 50px;
+      background: var(--surface);
+      padding: 0 20px;
+      font-size: 1rem;
+      font-weight: 400;
+      border-radius: 8px;
+      align-items: center;
+      cursor: pointer;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      color: var(--heading);
+    }
+    .advanced-search-wrapper .select-btn i {
+      font-size: 25px;
+      transition: 0.3s;
+    }
+    .advanced-search-wrapper .select-menu.active .select-btn i {
+      transform: rotate(-180deg);
+    }
+    .advanced-search-wrapper .select-menu .options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 18px rgba(2,6,12,0.35);
+      display: none;
+      z-index: 10;
+    }
+    .advanced-search-wrapper .select-menu.active .options {
+      display: block;
+    }
+    .advanced-search-wrapper .options .option {
+      display: flex;
+      height: 45px;
+      cursor: pointer;
+      padding: 0 16px;
+      border-radius: 8px;
+      align-items: center;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 1rem;
+      transition: background 0.2s ease;
+    }
+    .advanced-search-wrapper .options .option:hover {
+      background: var(--glass);
+      color: var(--accent);
+    }
+
+    /* Scoped Animated Search Bar Styles */
+    .advanced-search-wrapper .animated-search-container {
+      position: relative;
+      width: 300px;
+      height: 50px;
+    }
+    .advanced-search-wrapper .animated-search-container .search {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background: var(--accent);
+      border-radius: 50%;
+      transition: all 1s;
+      z-index: 4;
+      box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+    }
+    .advanced-search-wrapper .animated-search-container .search:hover {
+      cursor: pointer;
+    }
+    .advanced-search-wrapper .animated-search-container .search::before {
+      content: '';
+      position: absolute;
+      margin: auto;
+      top: 16px;
+      right: 0;
+      bottom: 0;
+      left: 16px;
+      width: 12px;
+      height: 2px;
+      background: white;
+      transform: rotate(45deg);
+      transition: all 0.5s;
+    }
+    .advanced-search-wrapper .animated-search-container .search::after {
+      content: '';
+      position: absolute;
+      margin: auto;
+      top: -4px;
+      right: 0;
+      bottom: 0;
+      left: -4px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 2px solid white;
+      transition: all 0.5s;
+    }
+    .advanced-search-wrapper .animated-search-container input {
+      font-family: 'Poppins', sans-serif;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      outline: none;
+      border: none;
+      background: var(--accent);
+      color: white;
+      text-shadow: 0 0 10px var(--accent);
+      padding: 0 80px 0 20px;
+      border-radius: 30px;
+      box-shadow: 0 0 25px 0 var(--accent), 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+      transition: all 1s;
+      opacity: 0;
+      z-index: 5;
+      font-weight: bolder;
+      letter-spacing: 0.1em;
+    }
+    .advanced-search-wrapper .animated-search-container input:hover {
+      cursor: pointer;
+    }
+    .advanced-search-wrapper .animated-search-container input:focus {
+      width: 300px;
+      opacity: 1;
+      cursor: text;
+    }
+    .advanced-search-wrapper .animated-search-container input:focus ~ .search {
+      right: -250px;
+      background: #151515;
+      z-index: 6;
+    }
+    .advanced-search-wrapper .animated-search-container input:focus ~ .search::before {
+      top: 0;
+      left: 0;
+      width: 25px;
+    }
+    .advanced-search-wrapper .animated-search-container input:focus ~ .search::after {
+      top: 0;
+      left: 0;
+      width: 25px;
+      height: 2px;
+      border: none;
+      background: white;
+      border-radius: 0%;
+      transform: rotate(-45deg);
+    }
+    .advanced-search-wrapper .animated-search-container input::placeholder {
+      color: white;
+      opacity: 0.5;
+      font-weight: bolder;
+    }
+
     /* Responsive tweaks */
     @media (max-width:880px){
       .main-nav{ display:none; }
@@ -437,7 +615,29 @@
 
   <!-- Search Bar -->
   <div class="search-container container">
-    <input type="search" id="content-search" placeholder="Search guides and FAQs..." aria-label="Search guides and FAQs">
+    <div class="advanced-search-wrapper">
+      <div class="select-menu">
+        <div class="select-btn">
+          <span class="sBtn-text">All Sections</span>
+          <i class="bx bx-chevron-down"></i>
+        </div>
+        <ul class="options">
+          <li class="option">
+            <span class="option-text">All Sections</span>
+          </li>
+          <li class="option">
+            <span class="option-text">Tips & Tricks</span>
+          </li>
+          <li class="option">
+            <span class="option-text">AoTR FAQs</span>
+          </li>
+        </ul>
+      </div>
+      <div class="animated-search-container">
+        <input type="text" id="content-search" placeholder="Search...">
+        <div class="search"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Bottom nav - mobile -->
@@ -1149,6 +1349,26 @@
         const searchInput = document.getElementById('content-search');
         if (!searchInput) return;
 
+        // ===== Dropdown functionality =====
+        const optionMenu = document.querySelector(".select-menu");
+        if (optionMenu) {
+          const selectBtn = optionMenu.querySelector(".select-btn"),
+                options = optionMenu.querySelectorAll(".option"),
+                sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+          selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
+
+          options.forEach(option => {
+            option.addEventListener("click", () => {
+              let selectedOption = option.querySelector(".option-text").innerText;
+              sBtn_text.innerText = selectedOption;
+              optionMenu.classList.remove("active");
+              // Trigger a search when an option is selected
+              filterContent(searchInput.value);
+            });
+          });
+        }
+
         const tipsSection = document.getElementById('tips');
         const faqsSection = document.getElementById('faqs');
         if (!tipsSection || !faqsSection) return;
@@ -1190,9 +1410,21 @@
 
         function filterContent(query) {
           const lowerCaseQuery = query.toLowerCase().trim();
+          const selectedCategory = document.querySelector(".sBtn-text").innerText;
           let firstMatch = null;
 
-          searchableDetails.forEach(detail => {
+          let elementsToSearch = [];
+          if (selectedCategory === "All Sections") {
+            elementsToSearch = searchableDetails;
+          } else if (selectedCategory === "Tips & Tricks") {
+            elementsToSearch = Array.from(tipsSection.querySelectorAll('details'));
+          } else if (selectedCategory === "AoTR FAQs") {
+            elementsToSearch = Array.from(faqsSection.querySelectorAll('details'));
+          }
+
+          searchableDetails.forEach(detail => detail.style.display = 'none');
+
+          elementsToSearch.forEach(detail => {
             const textContent = detail.textContent || "";
             const isMatch = textContent.toLowerCase().includes(lowerCaseQuery);
             detail.style.display = isMatch ? '' : 'none';
