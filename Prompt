@@ -6,8 +6,11 @@ Here are the specific instructions:
  * Locate Target: In the main index.html file, find the <div class="search-container container">.
  * Replace HTML: Remove the existing <input type="search" id="content-search" ...> from inside that div.
  * Insert New HTML: In its place, insert a new structure that combines the dropdown and the search bar.
-   * The HTML for the dropdown should be taken from Custom Dropdown Select Menu.zip.
-   * The HTML for the search input (the input and the animated .search div) should be taken from Search bar.zip.
+   * The HTML for the dropdown should be taken from Custom Dropdown Select Menu.zip's index.html file.
+   * IMPORTANT: You must modify this dropdown's HTML.
+     * Change the default button text (<span class="sBtn-text">) from "Select your option" to "All Sections".
+     * Replace the li.option elements in the ul.options. The original options are for social media (Github, Instagram, etc.). The new options must be: "All Sections", "Tips & Tricks", and "AoTR FAQs". You can remove the icons (<i> tags) from these new options, as they are not relevant.
+   * The HTML for the search input (the input and the animated .search div) should be taken from Search bar.zip's index.html file.
    * Please arrange them side-by-side (e.g., using flexbox) so the dropdown is on the left and the search bar is on the right.
  * Integrate CSS (Crucial):
    * Take all the CSS rules from Search bar.zip/Search bar/style.css.
@@ -19,6 +22,7 @@ Here are the specific instructions:
    * Add this script inside the main <script> tag at the bottom of my index.html file (within the existing (function(){ ... })();).
    * Ensure the selectors in this new JS (.select-menu, .select-btn, etc.) correctly target the new HTML you added.
  * Update Search Functionality:
-   * My file already has a JavaScript function named filterContent that filters the "Tips" and "FAQs" sections.
-   * Please modify this filterContent function. It must now filter based on both the text typed into the new search input and the category selected from the new dropdown menu. (For the dropdown options, you can use placeholder categories like "All," "Tips," and "FAQs").
+   * My file already has a JavaScript function named contentSearch (which contains filterContent) that filters the "Tips" and "FAQs" sections.
+   * Please modify this filterContent function. It must now filter based on both the text typed into the new search input and the category selected from the new dropdown menu (which you added in Step 3).
+   * For example, if the user selects "Tips & Tricks", the search should only apply to the "Tips" section. If "All Sections" is selected, it should search both "Tips" and "FAQs".
  * Final Output: The final result must be a single index.html file with all HTML, CSS, and JS integrated. All other parts of my original page (header, navigation, staff cards, theme toggle, etc.) must remain exactly as they were and be fully functional.
